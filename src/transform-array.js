@@ -1,4 +1,6 @@
-const { NotImplementedError } = require('../extensions/index.js');
+const {
+  NotImplementedError
+} = require('../extensions/index.js');
 
 /**
  * Create transformed array based on the control sequences that original
@@ -13,55 +15,55 @@ const { NotImplementedError } = require('../extensions/index.js');
  * transform([1, 2, 3, '--discard-prev', 4, 5]) => [1, 2, 4, 5]
  * 
  */
-function transform( arr ) {
- const newArray = arr.slice();
- for (let i = 0; i < arr.length; i++){
-   if (arr[i] === '--discard-next') {
-     if (newArray[i + 1] == "undefined") {
-       newArray.splice(i, 1);
-       continue
-     } else {
-     newArray.splice(i, 1);
-      newArray.splice(i + 1, 1);
-      continue
+function transform(arr) {
+  const newArray = arr.slice();
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === '--discard-next') {
+      if (newArray[i + 1] == "undefined") {
+        newArray.splice(i, 1);
+        continue
+      } else {
+        newArray.splice(i, 1);
+        newArray.splice(i + 1, 1);
+        continue
       }
 
-   } else if (arr[i] === '--discard-prev') {
-          if (newArray[i - 1] == "undefined") {
-                 newArray.splice(i, 1);
-                continue
-          } else {
-     newArray.splice(i, 1);
-     newArray.splice(i - 1, 1);
-     continue
-     }
+    } else if (arr[i] === '--discard-prev') {
+      if (newArray[i - 1] == "undefined") {
+        newArray.splice(i, 1);
+        continue
+      } else {
+        newArray.splice(i, 1);
+        newArray.splice(i - 1, 1);
+        continue
+      }
 
-   } else if (arr[i] === '--double-next') {
-     if (newArray[i + 1] == "undefined") {
-       newArray.splice(i, 1);
-       continue
-     } else {
-     newArray[i] = newArray[i + 1];
-     continue
-     }
+    } else if (arr[i] === '--double-next') {
+      if (newArray[i + 1] == "undefined") {
+        newArray.splice(i, 1);
+        continue
+      } else {
+        newArray[i] = newArray[i + 1];
+        continue
+      }
 
-   } else if (arr[i] === '--double-prev') {
-     if (newArray[i - 1] == "undefined") {
-       newArray.splice(i, 1);
-       continue
-     } else {
-     newArray[i] = newArray[i - 1];
-     continue
-     }
+    } else if (arr[i] === '--double-prev') {
+      if (newArray[i - 1] == "undefined") {
+        newArray.splice(i, 1);
+        continue
+      } else {
+        newArray[i] = newArray[i - 1];
+        continue
+      }
 
- } else if (!Array.isArray(arr)) {
-   throw new error("'arr' parameter must be an instance of the Array!")
- } else if (arr.length == 0) {
-   return newArray
- } else {
-   return newArray
- }
-}
+    } else if (!Array.isArray(arr)) {
+      throw new error("'arr' parameter must be an instance of the Array!")
+    } else if (arr.length == 0) {
+      return newArray
+    } else {
+      return newArray
+    }
+  }
 }
 module.exports = {
   transform

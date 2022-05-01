@@ -1,4 +1,6 @@
-const { NotImplementedError } = require('../extensions/index.js');
+const {
+  NotImplementedError
+} = require('../extensions/index.js');
 
 /**
  * Implement class DepthCalculator with method calculateDepth
@@ -13,18 +15,18 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 class DepthCalculator {
- constructor(array) {
-   this.array = array;
-   this.depth = 1;
- }
- calculateDepth(array = this.array, depth = 1) {
-     if (depth > this.depth) this.depth = depth;
-     for (let e of array) {
-       if (Array.isArray(e)) {
-         this.calculateDepth(e, depth + 1);
-       }
-     }
-     return this.depth;
+  constructor(array) {
+    this.array = array;
+    this.depth = 1;
+  }
+  calculateDepth(array = this.array, depth = 1) {
+    if (depth > this.depth) this.depth = depth;
+    for (let e of array) {
+      if (Array.isArray(e)) {
+        this.calculateDepth(e, depth + 1);
+      }
+    }
+    return this.depth;
   }
 }
 
