@@ -30,3 +30,10 @@ const chainMaker = {
 module.exports = {
   chainMaker
 };
+
+
+// getLength возвращает текущую длину цепи в виде числа;
+// addLink(value) добавляет звено, содержащее строковое представление value к цепочке;
+// removeLink(position) удаляет звено цепи, находящееся в заданном положении;
+// reverseChain разворачивает цепь задом наперед;
+// finishChain завершает цепь и возвращает ее.

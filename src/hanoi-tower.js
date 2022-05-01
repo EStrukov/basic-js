@@ -22,3 +22,9 @@ function calculateHanoi(/* disksNumber, turnsSpeed */) {
 module.exports = {
   calculateHanoi
 };
+
+
+/*
+
+ 3 - 7
+ */
